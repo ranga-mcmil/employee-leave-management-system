@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-topbar-color="dark">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Register</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- App favicon -->
+  <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
+
+  <!-- Theme Config Js -->
+  <script src="{% static 'assets/js/head.js' %}"></script>
+
+  <!-- Bootstrap css -->
+  <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" id="app-style" />
+
+  <!-- App css -->
+  <link href="{% static 'assets/css/app.min.css' %}" rel="stylesheet" type="text/css" />
+
+  <!-- Icons css -->
+  <link href="https://coderthemes.com/ubold/layouts/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="authentication-bg authentication-bg-pattern">
+  
+  <div class="account-pages mt-5 mb-5">
+    <div class="container">
+      {% if form.errors %}
+
+        {% include 'form_messages.html' with errors=form.errors %}
+
+      {% endif %}
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6 col-xl-6">
+          <div class="card bg-pattern">
+
+            <div class="card-body p-4">
+
+              <div class="text-center w-75 m-auto">
+                
+                <h2>Employee Leave <br>Management System</h2>
+                <hr>
+                
+                <p class="text-muted mb-4 mt-3">Don't have an account? Enter your details to register as an employer</p>
+              </div>
+
+              <form action="" method="post">
+
+                <div class="mb-3">
+                  <label for="emailaddress" class="form-label">First Name</label>
+                  {{user_form.first_name}}
+                </div>
+
+                <div class="mb-3">
+                  <label for="password" class="form-label">Last Name</label>
+                  <div class="input-group input-group-merge">
+                    {{user_form.last_name}}
+                    
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Email</label>
+                    <div class="input-group input-group-merge">
+                      {{user_form.email}}
+                      
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Company Name</label>
+                    <div class="input-group input-group-merge">
+                      {{company_form.name}}
+                      
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <div class="input-group input-group-merge">
+                      {{user_form.password}}
+                      
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Confirm Password</label>
+                    <div class="input-group input-group-merge">
+                      {{user_form.password2}}
+                      
+                    </div>
+                </div>
+
+                {% csrf_token %}
+                <div class="text-center d-grid">
+                  <button class="btn btn-primary" type="submit"> Sign Up </button>
+                </div>
+
+              </form>
+
+              
+
+            </div> <!-- end card-body -->
+          </div>
+          <!-- end card -->
+
+          <div class="row mt-3">
+            <div class="col-12 text-center">
+              <p class="text-white-50">Already have an account? <a href="{% url 'accounts:login' %}"
+                  class="text-white ms-1"><b>Sign In</b></a></p>
+            </div> <!-- end col -->
+          </div>
+          <!-- end row -->
+
+        </div> <!-- end col -->
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- end container -->
+  </div>
+  <!-- end page -->
+
+
+
+</body>
+
+</html>
